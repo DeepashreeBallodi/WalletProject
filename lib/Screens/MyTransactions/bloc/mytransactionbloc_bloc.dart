@@ -36,6 +36,6 @@ class MytransactionblocBloc
     }
 
     await getHomeScreenData();
-    yield MytransactionScreenLoaded(transactionResp: transactionResp);
+    yield MytransactionScreenLoaded(transactionResp: transactionResp,isInternetConnected: internet);
   }
 }

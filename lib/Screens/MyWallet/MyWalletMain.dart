@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:Wallet/Constants/ColorConstants.dart';
 import 'package:Wallet/Constants/textStyles.dart';
 import 'package:Wallet/Screens/MyTransactions/bloc/mytransactionbloc_bloc.dart';
 import 'package:Wallet/Screens/MyWallet/bloc/mywalletbloc_bloc.dart';
 import 'package:Wallet/Screens/MyWallet/widget/customButtons.dart';
+import 'package:Wallet/Utils/HelperUtil.dart';
+import 'package:Wallet/Utils/ToastUtil.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,12 +34,14 @@ class _MyWalletMain extends State<MyWalletMain> {
   void initState() {
     super.initState();
     myWalletBloc.add(GetMyWalletMainScreenEvent());
+    onNetworkChange();
   }
 
   @override
   void dispose() {
     super.dispose();
     myWalletBloc.close();
+     _connectivitySubscription?.cancel();
   }
 
   /* On change in network wifi/mobile data */
@@ -47,14 +53,39 @@ class _MyWalletMain extends State<MyWalletMain> {
         if (result == ConnectivityResult.none) {
           isNetworkConnected = false;
         } else {
+          myWalletBloc.add(GetMyWalletMainScreenEvent());
           isNetworkConnected = true;
         }
       });
     });
   }
 
-  backHandle() {
-    // Navigator.of(context).pop();
+    backHandle() {
+    return showDialog<bool>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text("Are you Sure You Want to Exit ?",style:FontTextStyle().titBlackTextStyle()),
+            actions: <Widget>[
+              TextButton(
+                child: new Text("Yes",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () {
+                  exit(0);
+                },
+              ),
+              TextButton(
+                child: new Text("No",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () async {
+                  Navigator.of(context).pop(false);
+                },
+              ),
+            ],
+          );
+        },
+      );
   }
 
   /* Show Progress Indication */
@@ -100,7 +131,27 @@ class _MyWalletMain extends State<MyWalletMain> {
               ),
             );
           } else if (state is MyWalletScreenLoaded) {
-            return ModalProgressHUD(
+            return 
+            !state.isInternetConnected ? 
+              HelperUtil.noInternetWidget(
+                              context,
+                              "NoInternet",
+                              "Please Check Your Internet Connection",
+                              "Retry",
+                              "Please check your ineternet connection", retryAction: () {
+                            HelperUtil.checkInternetConnection()
+                                .then((internet) {
+                              if (internet) {
+                               myWalletBloc.add(GetMyWalletMainScreenEvent());
+                              } else {
+                                ToastUtil().showMsg(
+                                  context,
+                                  "Please check your ineternet connection",
+                                );
+                              }
+                            });
+                          })
+            : ModalProgressHUD(
                 progressIndicator: LoadingUtil.ballRotate(context),
                 dismissible: false,
                 inAsyncCall: isLoading,

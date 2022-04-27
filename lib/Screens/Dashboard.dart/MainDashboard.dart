@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:Wallet/Constants/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:Wallet/Utils/LoadingUtil.dart';
@@ -23,9 +25,34 @@ class _MainDashboard extends State<MainDashboard> {
     super.dispose();
   }
 
-  backHandle() {
-    // Navigator.of(context).pop();
+    backHandle() {
+    return showDialog<bool>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text("Are you Sure You Want to Exit ?",style:FontTextStyle().titBlackTextStyle()),
+            actions: <Widget>[
+              TextButton(
+                child: new Text("Yes",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () {
+                  exit(0);
+                },
+              ),
+              TextButton(
+                child: new Text("No",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () async {
+                  Navigator.of(context).pop(false);
+                },
+              ),
+            ],
+          );
+        },
+      );
   }
+
 
   @override
   Widget build(BuildContext context) {

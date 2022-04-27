@@ -9,5 +9,6 @@ class MytransactionblocLoading extends MytransactionblocState {}
 
 class MytransactionScreenLoaded extends MytransactionblocState {
   TransactionHistory transactionResp;
-  MytransactionScreenLoaded({this.transactionResp});
+   bool isInternetConnected;
+  MytransactionScreenLoaded({this.transactionResp,this.isInternetConnected});
 }

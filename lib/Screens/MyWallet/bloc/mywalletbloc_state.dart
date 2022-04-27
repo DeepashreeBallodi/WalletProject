@@ -9,5 +9,6 @@ class MywalletblocLoading extends MywalletblocState {}
 
 class MyWalletScreenLoaded extends MywalletblocState {
   WalletData walletResponse;
-  MyWalletScreenLoaded({this.walletResponse});
+  bool isInternetConnected;
+  MyWalletScreenLoaded({this.walletResponse,this.isInternetConnected});
 }

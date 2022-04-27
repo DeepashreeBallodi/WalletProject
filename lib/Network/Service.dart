@@ -4,17 +4,14 @@ import 'dart:io';
 import 'dart:io' show Platform;
 import 'package:Wallet/DataModels/TransactionHistory.dart';
 import 'package:Wallet/DataModels/WalletModel.dart';
-import 'package:device_info/device_info.dart';
 import 'package:Wallet/Network/Network.dart';
 import 'package:Wallet/Utils/PrintUtil.dart';
-import 'package:Wallet/Utils/ToastUtil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Service {
   /* Declarations */
   Network _network = new Network();
   PrintUtil printClass = PrintUtil();
-  ToastUtil toastUtil = new ToastUtil();
   Map<String, String> paramsKeyVal;
   static int apiHitTimeout = 30;
 

@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:Wallet/Constants/textStyles.dart';
 import 'package:Wallet/Screens/MyTransactions/bloc/mytransactionbloc_bloc.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/TransactionListView.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/pieChart.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/pieLegendOptions.dart';
+import 'package:Wallet/Utils/HelperUtil.dart';
+import 'package:Wallet/Utils/ToastUtil.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,12 +34,14 @@ class _MyTransactionsMain extends State<MyTransactionsMain> {
   void initState() {
     super.initState();
     myTransBloc.add(GetTransactionMainScreenEvent());
+    onNetworkChange();
   }
 
   @override
   void dispose() {
     super.dispose();
     myTransBloc.close();
+     _connectivitySubscription?.cancel();
   }
 
   /* On change in network wifi/mobile data */
@@ -47,14 +53,41 @@ class _MyTransactionsMain extends State<MyTransactionsMain> {
         if (result == ConnectivityResult.none) {
           isNetworkConnected = false;
         } else {
+          myTransBloc.add(GetTransactionMainScreenEvent());
           isNetworkConnected = true;
         }
       });
     });
   }
 
+
+
   backHandle() {
-    // Navigator.of(context).pop();
+    return showDialog<bool>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text("Are you Sure You Want to Exit ?",style:FontTextStyle().titBlackTextStyle()),
+            actions: <Widget>[
+              TextButton(
+                child: new Text("Yes",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () {
+                  exit(0);
+                },
+              ),
+              TextButton(
+                child: new Text("No",
+                    style:FontTextStyle().basicBlackTextStyle()),
+                onPressed: () async {
+                  Navigator.of(context).pop(false);
+                },
+              ),
+            ],
+          );
+        },
+      );
   }
 
   /* Show Progress Indication */
@@ -100,7 +133,26 @@ class _MyTransactionsMain extends State<MyTransactionsMain> {
               ),
             );
           } else if (state is MytransactionScreenLoaded) {
-            return ModalProgressHUD(
+            return !state.isInternetConnected ?
+            HelperUtil.noInternetWidget(
+                              context,
+                              "NoInternet",
+                              "Please Check Your Internet Connection",
+                              "Retry",
+                              "Please check your ineternet connection", retryAction: () {
+                            HelperUtil.checkInternetConnection()
+                                .then((internet) {
+                              if (internet) {
+                                myTransBloc.add(GetTransactionMainScreenEvent());
+                              } else {
+                                ToastUtil().showMsg(
+                                  context,
+                                  "Please check your ineternet connection",
+                                );
+                              }
+                            });
+                          })
+            : ModalProgressHUD(
                 progressIndicator: LoadingUtil.ballRotate(context),
                 dismissible: false,
                 inAsyncCall: isLoading,

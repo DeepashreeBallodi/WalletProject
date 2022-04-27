@@ -35,6 +35,6 @@ class MywalletblocBloc extends Bloc<MywalletblocEvent, MywalletblocState> {
     }
 
     await getHomeScreenData();
-    yield MyWalletScreenLoaded(walletResponse: walletResponse);
+    yield MyWalletScreenLoaded(walletResponse: walletResponse,isInternetConnected: internet);
   }
 }

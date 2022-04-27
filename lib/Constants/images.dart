@@ -4,4 +4,5 @@ class ImagePaths {
   static const String ethereum = "assets/images/Ethereum.png";
   static const String ripley = "assets/images/Ripley.png";
   static const String ruble = "assets/images/Ruble.png";
+  static const String noInternet = "assets/images/no-internet-icon.png";
 }
