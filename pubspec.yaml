@@ -24,42 +24,22 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # https://pub.dev/packages/get_it
+# https://pub.dev/packages/get_it
   get_it: ^4.0.4
-  # https://pub.dev/packages/http/install
-  http: ^0.12.2
-  # https://pub.dev/packages/shared_preferences/install
-  shared_preferences: ^0.5.8
-  # https://pub.dev/packages/device_info/install
-  device_info: ^0.4.2+6
-  # https://pub.dev/packages/flutter_splash_screen/install
-  flutter_splash_screen: ^0.1.0
   # https://pub.dev/packages/modal_progress_hud/install
   modal_progress_hud: ^0.1.3
   # https://pub.dev/packages/loading_indicator/install
   loading_indicator: ^1.2.0
   # https://pub.dev/packages/connectivity/install
-  connectivity: ^0.4.9
-  # https://pub.dev/packages/flutter_html/install
-  flutter_html: ^0.11.1 
-  # https://pub.dev/packages/url_launcher/install - To Open App links
-  url_launcher: ^5.5.0
+  connectivity: ^3.0.4
   # https://pub.dev/packages/cached_network_image/install
   cached_network_image: ^2.3.1
-  # https://pub.dev/packages/permission_handler/install
-  permission_handler: ^5.0.1+1
-  # https://pub.dev/packages/pull_to_refresh
-  pull_to_refresh: ^2.0.0
-  # https://pub.dev/packages/ntp/install
-  auto_size_text: ^2.1.0
   # https://pub.dev/packages/flutter_bloc/install
   flutter_bloc: ^6.1.2
   # https://pub.dev/packages/shimmer/install
-  shimmer: ^1.1.1
+  shimmer: ^2.0.0
   # https://pub.dev/packages/flutter_screenutil/versions/4.0.2+3/install
   flutter_screenutil: 4.0.2+3
-  # https://pub.dev/packages/background_app_bar/install
-  background_app_bar: ^2.0.1
   # https://pub.dev/packages/another_flushbar/install
   another_flushbar: ^1.10.28
   # https://pub.dev/packages/pie_chart/install

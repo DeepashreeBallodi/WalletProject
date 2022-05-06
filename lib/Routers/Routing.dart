@@ -3,10 +3,8 @@ import 'package:Wallet/Screens/BottomNavigationBar/Widget/NavBarIcons.dart';
 import 'package:Wallet/Screens/MyTransactions/MyTransactionsMain.dart';
 import 'package:Wallet/Screens/MyWallet/MyWalletMain.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_splash_screen/flutter_splash_screen.dart';
-import 'package:Wallet/Constants/appConstants.dart' as Constants;
-import 'package:Wallet/Constants/routeConstants.dart' as RouteConstants;
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/route_constants.dart' as RouteConstants;
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:Wallet/Screens/LaunchScreen.dart';
 
 class RouteGenerator {
@@ -14,9 +12,6 @@ class RouteGenerator {
     final args = settings.arguments;
     switch (settings.name) {
       case RouteConstants.routeDefault:
-        Future.delayed(Duration(seconds: 3), () {
-          FlutterSplashScreen.hide();
-        });
         return MaterialPageRoute(
             builder: (_) => LaunchScreen(),
             settings: RouteSettings(name: settings.name));

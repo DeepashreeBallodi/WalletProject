@@ -1,4 +1,4 @@
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'dart:math' as math;

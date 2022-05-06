@@ -1,6 +1,6 @@
 import 'package:Wallet/DataModels/TransactionHistory.dart';
 import 'package:Wallet/Network/Service.dart';
-import 'package:Wallet/Utils/HelperUtil.dart';
+import 'package:Wallet/Utils/helper_util.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 

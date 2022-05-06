@@ -1,5 +1,5 @@
 import 'package:Wallet/Constants/images.dart';
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:Wallet/DataModels/TransactionHistory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

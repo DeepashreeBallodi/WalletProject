@@ -1,4 +1,4 @@
-import 'package:Wallet/Constants/appConstants.dart' as Constants;
+import 'package:Wallet/Constants/app_constants.dart' as Constants;
 
 class PrintUtil {
   /* Common Print Method */

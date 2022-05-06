@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:Wallet/Utils/LoadingUtil.dart';
+import 'package:Wallet/Utils/loading_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 

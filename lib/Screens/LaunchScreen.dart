@@ -1,9 +1,8 @@
-import 'package:Wallet/Utils/LoadingUtil.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:Wallet/Utils/loading_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
-import 'package:Wallet/Constants/routeConstants.dart' as RouteConstants;
+import 'package:Wallet/Constants/route_constants.dart' as RouteConstants;
 
 class LaunchScreen extends StatefulWidget {
   @override

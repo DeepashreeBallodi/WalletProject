@@ -1,9 +1,8 @@
 import 'dart:ui';
-import 'package:Wallet/Constants/ColorConstants.dart';
+import 'package:Wallet/Constants/color_constants.dart';
 import 'package:Wallet/Constants/images.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:Wallet/Constants/appConstants.dart' as Constants;
 
 class HelperUtil {
   static String getNameTest() {

@@ -1,5 +1,5 @@
-import 'package:Wallet/Constants/ColorConstants.dart';
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/color_constants.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 

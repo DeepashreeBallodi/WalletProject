@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:Wallet/Routers/Locator.dart';
+import 'package:Wallet/Routers/locator.dart';
 import 'package:Wallet/Routers/NavigationService.dart';
-import 'package:Wallet/Utils/PrintUtil.dart';
+import 'package:Wallet/Utils/print_util.dart';
 import 'package:http/http.dart' as http;
 
 class Network {

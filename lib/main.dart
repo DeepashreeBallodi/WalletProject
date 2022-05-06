@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:Wallet/Routers/Locator.dart';
+import 'package:Wallet/Routers/locator.dart';
 import 'package:Wallet/Routers/NavigationService.dart';
 import 'package:Wallet/Routers/Routing.dart';
-import 'package:Wallet/Constants/appConstants.dart' as Constants;
-import 'package:Wallet/Constants/routeConstants.dart' as RouteConstants;
+import 'package:Wallet/Constants/app_constants.dart' as Constants;
+import 'package:Wallet/Constants/route_constants.dart' as RouteConstants;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

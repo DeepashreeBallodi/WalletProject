@@ -1,18 +1,16 @@
 import 'dart:io';
 
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:Wallet/Screens/MyTransactions/bloc/mytransactionbloc_bloc.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/TransactionListView.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/pieChart.dart';
 import 'package:Wallet/Screens/MyTransactions/widget/pieLegendOptions.dart';
-import 'package:Wallet/Utils/HelperUtil.dart';
-import 'package:Wallet/Utils/ToastUtil.dart';
+import 'package:Wallet/Utils/helper_util.dart';
+import 'package:Wallet/Utils/toast_util.dart';
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:Wallet/Constants/appConstants.dart' as Constants;
-import 'package:Wallet/Utils/LoadingUtil.dart';
+import 'package:Wallet/Utils/loading_util.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:shimmer/shimmer.dart';

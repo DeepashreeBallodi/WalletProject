@@ -1,6 +1,6 @@
-import 'package:Wallet/Constants/ColorConstants.dart';
+import 'package:Wallet/Constants/color_constants.dart';
 import 'package:Wallet/Constants/images.dart';
-import 'package:Wallet/Constants/textStyles.dart';
+import 'package:Wallet/Constants/text_styles.dart';
 import 'package:Wallet/Screens/BottomNavigationBar/Widget/NavBarIcons.dart';
 import 'package:Wallet/Screens/Dashboard.dart/MainDashboard.dart';
 import 'package:Wallet/Screens/MyTransactions/MyTransactionsMain.dart';
